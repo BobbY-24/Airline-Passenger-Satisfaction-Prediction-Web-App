@@ -1,3 +1,6 @@
+
+Web address: http://128.61.11.128:8501
+
 Airline Passenger Satisfaction Prediction Web App
 Project Overview
 This project is an interactive web application that predicts airline passenger satisfaction based on various flight and service attributes. Users can input passenger details and receive an immediate prediction of whether the passenger is likely to be satisfied or dissatisfied. The app also provides interactive visualizations to explore patterns in the dataset.
