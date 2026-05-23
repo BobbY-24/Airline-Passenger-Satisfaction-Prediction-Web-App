@@ -1,5 +1,3 @@
-# airline_satisfaction_app.py
-
 import streamlit as st
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -9,7 +7,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.ensemble import RandomForestClassifier
 
 # Load dataset
-df = pd.read_csv('/Users/bobyan/Desktop/Kaggle Datasets/airline_satisfaction.csv')
+df = pd.read_csv("data/airline_satisfaction.csv")
 
 # Preprocessing
 df.drop(['Unnamed: 0', 'id'], axis=1, inplace=True, errors="ignore")
@@ -46,7 +44,7 @@ model = Pipeline(steps=[
 model.fit(X_train, y_train)
 
 # Streamlit App UI
-st.title("Airline Passenger Satisfaction Predictor ✈️")
+st.title("Airline Passenger Satisfaction Predictor")
 
 st.header("Enter Passenger Details:")
 
@@ -94,7 +92,6 @@ if st.button("Predict Satisfaction"):
     })
 
     prediction = model.predict(new_passenger)[0]
-    result = "😊 Satisfied" if prediction == 1 else "☹️ Dissatisfied"
+    result = "Satisfied" if prediction == 1 else "Dissatisfied"
 
     st.subheader(f"Prediction: {result}")
-

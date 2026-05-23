@@ -1,147 +1,52 @@
+# Airline Passenger Satisfaction Prediction Web App
 
-Web address: http://128.61.11.128:8501
+## Overview
+This project is a Streamlit web app for predicting airline passenger satisfaction from passenger, travel, delay, and service-rating inputs. The app trains a Random Forest classifier from the local dataset and provides an interactive form for trying passenger profiles.
 
-Airline Passenger Satisfaction Prediction Web App
-Project Overview
-This project is an interactive web application that predicts airline passenger satisfaction based on various flight and service attributes. Users can input passenger details and receive an immediate prediction of whether the passenger is likely to be satisfied or dissatisfied. The app also provides interactive visualizations to explore patterns in the dataset.
-The project uses Python, pandas, scikit-learn, and Streamlit for building the interactive web interface.
+## Motivation
+This repo demonstrates how a notebook-based machine learning workflow can be translated into a small interactive application. It is useful for communicating model behavior to nontechnical users and for practicing lightweight ML app deployment.
 
-Dataset
-Source: Kaggle – Airline Passenger Satisfaction
+## Dataset
+- **Source:** Kaggle Airline Passenger Satisfaction dataset.
+- **File:** `data/airline_satisfaction.csv`
+- **Target variable:** `satisfaction`.
+- **Important features:** age, flight distance, travel type, customer type, class, delays, and service ratings.
+- **Dataset size:** TODO: add dataset size after rerunning app/notebook.
+- **Known limitations:** The app retrains on startup and is intended for demonstration, not production.
 
+## Methods
+- Load and clean the airline satisfaction dataset.
+- Convert satisfaction labels to binary values.
+- One-hot encode categorical variables.
+- Train a Random Forest classifier.
+- Use Streamlit widgets to collect passenger inputs and display predictions.
 
-Description: The dataset contains information about passengers’ flight experiences, including demographics, flight distance, delays, and various service ratings.
+## Results
+TODO: add metric after rerunning notebook.
 
+## Key Insights
+- A small Streamlit interface makes an ML model easier to inspect.
+- Default values are used for fields not exposed in the form.
+- This app is a demo layer for the broader airline satisfaction modeling work.
 
-Columns: Includes Age, Flight Distance, Customer Type, Type of Travel, Class, Inflight wifi service, Seat comfort, Food and drink, Inflight entertainment, Gate location, Baggage handling, Online boarding, Leg room service, Ease of Online booking, On-board service, Checkin service, Cleanliness, Inflight service, Departure/Arrival time convenient, Gender, and satisfaction.
+## Limitations
+- The model retrains each time the app starts.
+- Several model features are filled with default values in the UI.
+- The app does not save model artifacts or track model versions.
+- It should not be treated as an operational prediction system.
 
+## Future Improvements
+- Save and load a trained model artifact.
+- Expose all important model features in the UI.
+- Add model metrics and feature importance to the app.
+- Add a deployment guide.
 
-
-Features
-Interactive Visualization
-
-
-Explore passenger satisfaction by numeric or categorical features.
-
-
-Dynamic bar charts and histograms powered by Plotly.
-
-
-Prediction Interface
-
-
-Users can input passenger details via sliders and dropdowns.
-
-
-Predicts passenger satisfaction using a Random Forest Classifier.
-
-
-Shows result as Satisfied or Dissatisfied.
-
-
-Machine Learning Pipeline
-
-
-Preprocessing: One-hot encoding for categorical features and passthrough for numeric features.
-
-
-Model: Random Forest Classifier trained on 80% of the dataset.
-
-
-Evaluation: Displays classification report and confusion matrix.
-
-
-
-Installation
-Clone the repository:
-
-
-git clone <your-repo-url>
-cd <repo-folder>
-
-Create a Python environment and install dependencies:
-
-
-conda create -n airline_env python=3.10
-conda activate airline_env
+## How to Run
+```bash
+git clone https://github.com/BobbY-24/Airline-Passenger-Satisfaction-Prediction-Web-App.git
+cd Airline-Passenger-Satisfaction-Prediction-Web-App
+python -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
-
-Install Streamlit if not included:
-
-
-pip install streamlit
-
-
-Usage
-Run the Streamlit app:
-
-
-streamlit run airline_satisfaction_app.py
-
-A browser window will open showing:
-
-
-Sliders for numeric passenger attributes.
-
-
-Dropdowns for categorical attributes.
-
-
-Predict button to see satisfaction prediction.
-
-
-Interactively explore the dataset and visualize passenger satisfaction trends.
-
-
-
-Dependencies
-Python 3.10+
-
-
-pandas
-
-
-numpy
-
-
-scikit-learn
-
-
-matplotlib
-
-
-seaborn
-
-
-plotly
-
-
-ipywidgets
-
-
-streamlit
-
-
-
-Example Prediction
-Input a new passenger:
-Age: 35
-
-
-Flight Distance: 1200
-
-
-Inflight Wifi Service: 4
-
-
-Seat Comfort: 5
-
-
-Customer Type: Loyal
-
-
-Class: Economy
-
-
-Prediction: 😊 Satisfied
-
+streamlit run app.py
+```
